@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: spring-ai-chat-bot
+  ai:
+    ollama:
+      chat:
+        model: llama3.1
+      embedding:
+        model: llama3.1
+
+  servlet:
+    multipart:
+      max-file-size: 1MB
+      max-request-size: 1MB
+      enabled: true
+
+logging:
+  level:
+    org.springframework.web: warn
