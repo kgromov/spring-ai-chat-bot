@@ -8,7 +8,6 @@ import org.springframework.ai.vectorstore.VectorStore;
 import org.springframework.stereotype.Service;
 
 import java.nio.file.Path;
-import java.util.List;
 
 @Service
 @Slf4j
