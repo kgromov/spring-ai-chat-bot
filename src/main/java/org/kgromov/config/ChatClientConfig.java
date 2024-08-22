@@ -27,7 +27,7 @@ public class ChatClientConfig {
     @Bean
     ChatClient ollamaChatClient(@Qualifier("ollamaChatModel") ChatModel chatModel) {
         return ChatClient.builder(chatModel)
-                .defaultSystem(systemPrompt)
+                .defaultUser(systemPrompt)
                 .defaultAdvisors(new MessageChatMemoryAdvisor(new InMemoryChatMemory()))
                 .build();
     }
@@ -44,7 +44,7 @@ public class ChatClientConfig {
     @Bean
     ChatClient openaiChatClient(@Qualifier("openAiChatModel") ChatModel chatModel) {
         return ChatClient.builder(chatModel)
-                .defaultSystem(systemPrompt)
+                .defaultUser(systemPrompt)
                 .defaultAdvisors(new MessageChatMemoryAdvisor(new InMemoryChatMemory()))
                 .build();
     }

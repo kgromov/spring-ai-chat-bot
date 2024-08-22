@@ -44,13 +44,16 @@ public class FilesUploader extends VerticalLayout {
         fileUploader.setMaxFileSize(10 * 1024 * 1024);
         fileUploader.setAcceptedFileTypes(
                 "application/pdf", ".pdf",
-                // Microsoft Excel (.xls)
-                "application/vnd.ms-excel", ".xls",
-                // Microsoft Excel (OpenXML, .xlsx)
-                "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", ".xlsx",
-                // Comma-separated values (.csv)
-                "text/csv", ".csv",
-                "text/plain", ".txt"
+                // Microsoft Word
+                "application/msword", ".doc",
+                // Microsoft Word (OpenXML)
+                "application/vnd.openxmlformats-officedocument.wordprocessingml.document", ".docx",
+                // Microsoft PowerPoint
+                "application/vnd.ms-powerpoint", ".ppt",
+                // Microsoft PowerPoint (OpenXML)
+                "application/vnd.openxmlformats-officedocument.presentationml.presentation", ".pptx",
+                "text/plain", ".txt",
+                "text/html", ".html"
         );
 
         fileUploader.addSucceededListener(event -> {
