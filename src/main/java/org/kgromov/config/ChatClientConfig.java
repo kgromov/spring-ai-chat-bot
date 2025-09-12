@@ -22,7 +22,7 @@ public class ChatClientConfig {
     @Value("classpath:/prompts/rag-prompt-template.st")
     private Resource systemPrompt;
 
-    @Profile("!openai")
+    @Profile("!azure")
     @Qualifier("chatClient")
     @Bean
     ChatClient ollamaChatClient(@Qualifier("ollamaChatModel") ChatModel chatModel) {
@@ -32,27 +32,27 @@ public class ChatClientConfig {
                 .build();
     }
 
-    @Profile("!openai")
+    @Profile("!azure")
     @Qualifier("vectorStore")
     @Bean
     VectorStore ollamaModelVectorStore(@Qualifier("ollamaEmbeddingModel") EmbeddingModel embeddingModel) {
         return new SimpleVectorStore(embeddingModel);
     }
 
-    @Profile("openai")
+    @Profile("azure")
     @Qualifier("chatClient")
     @Bean
-    ChatClient openaiChatClient(@Qualifier("openAiChatModel") ChatModel chatModel) {
+    ChatClient openaiChatClient(@Qualifier("azureOpenAiChatModel") ChatModel chatModel) {
         return ChatClient.builder(chatModel)
                 .defaultUser(systemPrompt)
                 .defaultAdvisors(new MessageChatMemoryAdvisor(new InMemoryChatMemory()))
                 .build();
     }
 
-    @Profile("openai")
+    @Profile("azure")
     @Qualifier("vectorStore")
     @Bean
-    VectorStore openAiModelVectorStore(@Qualifier("openAiEmbeddingModel") EmbeddingModel embeddingModel) {
+    VectorStore openAiModelVectorStore(@Qualifier("azureOpenAiEmbeddingModel") EmbeddingModel embeddingModel) {
         return new SimpleVectorStore(embeddingModel);
     }
 }
