@@ -4,9 +4,11 @@ spring:
   ai:
     ollama:
       chat:
-        model: llama3.1
+#        model: llama3.1
+        model: qwen2.5:latest
       embedding:
         model: llama3.1
+#        model: nomic-embed-text:latest
 
   servlet:
     multipart:
